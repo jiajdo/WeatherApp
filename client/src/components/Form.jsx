@@ -3,11 +3,7 @@ import { useState } from "react";
 
 
 
-function Form() {
-    const [city, setCity] = useState('');
-    const [data, setData] = useState();
-
-    
+function Form({setCity, setCityToFetch, city}) {
   return (
     <div><p>Form</p>
     <input
@@ -17,7 +13,9 @@ function Form() {
     placeholder='Enter a city'
     onChange={(e) => setCity(e.target.value)}
     ></input>
-    <button>
+    <button
+    onClick={() => setCityToFetch(city)}
+    >
     Get Weather
     </button>
     </div>

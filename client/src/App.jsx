@@ -4,26 +4,32 @@ import Form from "./components/Form";
 
 
 function App() {
+  const [cityToFetch, setCityToFetch] = useState('');
   const [name, setName] = useState('');
- 
+  const [data, setData] = useState();
+  const [city, setCity] = useState('');
+  
+
+
 
   const callBackEnd = async () => {
-    const response = await fetch('http://localhost:8080/name')
-    const data = await response.json();
-    console.log(data)
-    setName(data.name)
-  }  
-      
-useEffect(() => {
-  callBackEnd();
-}, [])
-  return (
-    
-    <div>
-      <h1>{name}</h1>
-      <Form/>
-    </div>
+    const response = await fetch(`http://localhost:8080/api?cityToFetch=${cityToFetch}`)
+    const weatherData = await response.json();
+    console.log(weatherData)
+    setData(weatherData.weather[0].description)
+  }
 
+  useEffect(() => {
+    if (cityToFetch.length > 0) {
+      callBackEnd();
+    }
+  }, [cityToFetch])
+
+  return (
+    <div>
+      <h1>{data}</h1>
+      <Form setCity={setCity} setCityToFetch={setCityToFetch} city={city} />
+    </div>
   )
 }
 

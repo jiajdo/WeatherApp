@@ -12,20 +12,24 @@ const APIKEY = process.env.API_KEY
 
 
 //creates an endpoint for the route /api
-app.get('/', (req,res) =>{
-res.send('This is the home page')
+app.get('/', (req, res) => {
+  res.send('This is the home page')
 })
 
-app.get('/api', (req, res) => {
-  res.json({ message: 'Hello from ExpressJS' });
+app.get('/api', async (req, res) => {
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${req.query.cityToFetch}&appid=${APIKEY}`;
+  const response = await fetch(url)
+  const weatherData = await response.json()
+  res.json(weatherData);
 });
 
 app.get('/name', (req, res) => {
-    const name = {name: "Jia"}
-    res.json(name);
+  console.log('entering api name')
+  const name = { name: "Jia" }
+  res.json(name);
 });
 
 // console.log that your server is up and running
 app.listen(PORT, () => {
-    console.log(`Your girl is listening on ${PORT}`);
+  console.log(`Your girl is listening on ${PORT}`);
 });
