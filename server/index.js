@@ -13,7 +13,7 @@ const APIKEY = process.env.API_KEY
 
 //creates an endpoint for the route /api
 app.get('/', (req,res) =>{
-    res.send('This is the home page')
+res.send('This is the home page')
 })
 
 app.get('/api', (req, res) => {
@@ -23,9 +23,9 @@ app.get('/api', (req, res) => {
 app.get('/name', (req, res) => {
     const name = {name: "Jia"}
     res.json(name);
-  });
+});
 
 // console.log that your server is up and running
 app.listen(PORT, () => {
-  console.log(`Your girl is listening on ${PORT}`);
+    console.log(`Your girl is listening on ${PORT}`);
 });
