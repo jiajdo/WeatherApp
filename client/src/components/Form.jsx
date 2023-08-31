@@ -5,7 +5,7 @@ import { useState } from "react";
 
 function Form({setCity, setCityToFetch, city}) {
   return (
-    <div><p>Form</p>
+    <div><h1>What's the weather?</h1>
     <input
     type='text'
     id='city'

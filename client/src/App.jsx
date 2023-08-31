@@ -15,7 +15,7 @@ function App() {
   const callBackEnd = async () => {
     const response = await fetch(`http://localhost:8080/api?cityToFetch=${cityToFetch}`)
     const weatherData = await response.json();
-    console.log(weatherData)
+    //console.log(weatherData)
     setData(weatherData.weather[0].description)
   }
 
@@ -27,8 +27,8 @@ function App() {
 
   return (
     <div>
-      <h1>{data}</h1>
       <Form setCity={setCity} setCityToFetch={setCityToFetch} city={city} />
+      <h1>{data}</h1>
     </div>
   )
 }
