@@ -1,8 +1,21 @@
 import React from 'react'
 import './WeatherCard.css'
 
+function convertUnixTimestampToCityTime(unixTimestamp, utcOffsetInSeconds) {
+    const utcSeconds = unixTimestamp + utcOffsetInSeconds;
+    const cityDate = new Date(utcSeconds * 1000);
+
+    return cityDate.toLocaleTimeString(undefined, {
+        timeZone: 'UTC',
+        hour: 'numeric',
+        minute: 'numeric'
+    });
+}
+
+
 
 function WeatherCard({ data, city }) {
+     
     if (data && city) {
         return (
             <div className='weatherCard'>
@@ -19,14 +32,14 @@ function WeatherCard({ data, city }) {
                     <span>Description: {data.weather[0].description}</span>
                 </h3>
                 <h3>
-                    <span>Sunrise: {data.sys.sunrise}</span>
+                    <span>Sunrise: {convertUnixTimestampToCityTime(data.sys.sunrise, data.timezone)}</span>
                 </h3>
                 <h3>
-                    <span>Sunset: {data.sys.sunset}</span>
+                    <span>Sunset: {convertUnixTimestampToCityTime(data.sys.sunset, data.timezone)} </span>
                 </h3>
             </div>
         )
     }
 }
 
-export default WeatherCard
+export default WeatherCardtolo
