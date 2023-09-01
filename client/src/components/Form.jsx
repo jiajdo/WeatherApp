@@ -14,7 +14,7 @@ function Form() {
         )
 
         const weatherData = await response.json()
-        setData(weatherData.data)
+        setData(weatherData)
         console.log('weatherData from form', weatherData.data)
     }
     return (

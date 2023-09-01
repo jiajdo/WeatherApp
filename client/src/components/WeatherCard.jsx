@@ -6,7 +6,10 @@ function WeatherCard({ data, city }) {
         return (
             <div>
                 <h2>
-                    <span>{data}</span>
+                    <span>{data.name}</span>
+                </h2>
+                <h2>
+                    <span>{data.sys.country}</span>
                 </h2>
 
             </div>
