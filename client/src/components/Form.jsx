@@ -1,5 +1,6 @@
 import React from 'react'
 import { useState } from "react";
+import WeatherCard from './WeatherCard';
 
 
 
@@ -14,6 +15,7 @@ function Form() {
 
         const weatherData = await response.json()
         setData(weatherData.data)
+        console.log(weatherData)
     }
     return (
         <div><h1>What's the weather?</h1>
@@ -27,6 +29,7 @@ function Form() {
             <button onClick={() => { getWeather }}>
                 Get Weather
             </button>
+            <WeatherCard />
         </div>
     )
 }
