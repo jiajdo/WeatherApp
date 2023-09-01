@@ -6,7 +6,7 @@ function WeatherCard({ data, city }) {
         return (
             <div>
                 <h2>
-                    <span>{data.name}</span>
+                    <span>{data}</span>
                 </h2>
 
             </div>

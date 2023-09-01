@@ -15,7 +15,7 @@ function Form() {
 
         const weatherData = await response.json()
         setData(weatherData.data)
-        console.log(weatherData)
+        console.log('weatherData from form', weatherData.data)
     }
     return (
         <div><h1>What's the weather?</h1>
@@ -24,12 +24,12 @@ function Form() {
                 id='city'
                 name='city'
                 placeholder='Enter a city'
-                onChange={(e) => (e.target.value)}
+                onChange={(e) => setCity(e.target.value)}
             ></input>
-            <button onClick={() => { getWeather }}>
+            <button onClick={ getWeather }>
                 Get Weather
             </button>
-            <WeatherCard />
+            <WeatherCard city={city} data={data}/>
         </div>
     )
 }
