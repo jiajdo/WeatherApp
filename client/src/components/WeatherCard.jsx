@@ -42,4 +42,4 @@ function WeatherCard({ data, city }) {
     }
 }
 
-export default WeatherCardtolo
+export default WeatherCard
