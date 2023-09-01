@@ -17,6 +17,9 @@ function WeatherCard({ data, city }) {
                 <h3>
                     <span>Description: {data.weather[0].description}</span>
                 </h3>
+                <h3>
+                    <span>Sunrise: {data.sys.sunrise}</span>
+                </h3>
             </div>
         )
     }
