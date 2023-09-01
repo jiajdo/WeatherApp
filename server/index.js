@@ -24,7 +24,6 @@ app.get('/api', async (req, res) => {
 });
 
 app.get('/name', (req, res) => {
-  console.log('entering api name')
   const name = { name: "Jia" }
   res.json(name);
 });
