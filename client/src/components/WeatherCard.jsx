@@ -1,10 +1,11 @@
 import React from 'react'
+import './WeatherCard.css'
 
 
 function WeatherCard({ data, city }) {
     if (data && city) {
         return (
-            <div>
+            <div className='weatherCard'>
                 <h3>
                     <span>{data.name}, {data.sys.country}</span>
                 </h3>
