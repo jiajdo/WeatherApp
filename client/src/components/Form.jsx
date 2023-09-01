@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState } from "react";
 import WeatherCard from './WeatherCard';
+import './Form.css'
 
 
 
@@ -18,7 +19,7 @@ function Form() {
         console.log('weatherData from form', weatherData.data)
     }
     return (
-        <div><h1>What's the weather?</h1>
+        <div className='form'><h1>What's the weather?</h1>
             <input
                 type='text'
                 id='city'
